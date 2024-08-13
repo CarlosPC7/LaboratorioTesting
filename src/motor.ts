@@ -37,13 +37,28 @@ export const obtenerUrlCarta = (carta: number) => {
         }
 };
 
-export const sumarANuevaPuntuacion = (carta: number) => {
-    if (carta > 7) {
-        partida.guardarPuntuacion +=0.5;
-    } else {
-        partida.guardarPuntuacion += carta
-    }
+export const obtenerPuntosCartas = (carta: number) => {
+  if (carta > 7) {
+    return 0.5;
+  }
+  return carta;
 };
+export const sumarPuntacion = (puntos: number) => {
+  return partida.guardarPuntuacion + puntos;
+};
+export const actualizarPuntos = (puntosActualizados: number) => {
+  partida.guardarPuntuacion = puntosActualizados;
+};
+/*// las tres funciones de arriba, son equivalentes (pero separadas) a la función de sumarANuevaPuntuacion
+export const sumarANuevaPuntuacion = (carta: number) => {
+  if (carta > 7) {
+    partida.guardarPuntuacion += 0.5;
+  } else {
+    partida.guardarPuntuacion += carta;
+  }
+};*/
+
+
 
 export const puntuacionObtenida = (): string => {
     if (partida.guardarPuntuacion <= numeroCuatro) {
